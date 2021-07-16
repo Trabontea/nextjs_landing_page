@@ -1,4 +1,5 @@
 ## Getting Started
+Landing Page with Next.js and Material UI
 
 Install the dependencies and run the development server
 
