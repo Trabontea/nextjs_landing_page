@@ -101,7 +101,35 @@ const carouselParams = {
 
 export default function TestimonialCard() {
   return (
-   <h1>Testimonial Card</h1>
+   <section id="testimonial" sx={{variant: 'section.testimonial'}}>
+     <Container css={{textAlign: 'center'}}>
+        <SectionHeader  slogan="Testimonial" title=" Meet Client Satisfaction"/>
+        <Box sx={styles.carouselWrapper}>
+          <Carousel {...carouselParams}>
+            {data.map((item) =>
+              <Box sx={styles.reviewCard} key={item.sliderClass}>
+                <Rating rating={item.review}/>
+                <Heading as="h3" sx={styles.title}>
+                  {item.title}
+                </Heading>
+                <Text sx={styles.description}>{item.description}</Text>
+                <div className="card-footer">
+                  <div className="image">
+                    <Image src={item.avatar} alt="Client Image" />
+                  </div>
+                    <div className="reviewer-info">
+                      <Heading as="h4" sx={styles.heading}>
+                        {item.name}
+                      </Heading>
+                      <Text sx={styles.designation}>{item.designation}</Text>
+                  </div>
+                </div>
+              </Box>
+            )}
+          </Carousel>
+        </Box>
+     </Container>
+   </section>
   );
 }
 
@@ -125,7 +153,7 @@ const styles = {
         null,
         'calc(50% + 865px)',
       ],
-      mr: ['auto', null, null, null, null, null, null, '-220px'],
+      mr: ['auto', null, null, null, null, null, null],
       ml: 'auto',
       '.react-multi-carousel-item': {
         transition: 'all 0.25s',
